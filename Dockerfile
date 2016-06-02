@@ -6,8 +6,7 @@ RUN echo 'deb http://httpredir.debian.org/debian jessie contrib' >> /etc/apt/sou
 
 # Installing packages
 RUN apt-get update && apt-get upgrade -y
-RUN export DEBIAN_FRONTEND=noninteractive
-RUN apt-get install -y --force-yes xorg libssl-dev libxrender-dev fontconfig ttf-mscorefonts-installer xfonts-75dpi curl mysql-client-5.5 libcurl4-gnutls-dev libxml2-dev libpng12-dev libicu-dev libmcrypt-dev libjpeg62-turbo-dev libfreetype6-dev libjpeg62-turbo zlib1g-dev libmemcached11 libmemcached-dev
+RUN export DEBIAN_FRONTEND=noninteractive && apt-get install -y --force-yes xorg libssl-dev libxrender-dev fontconfig ttf-mscorefonts-installer xfonts-75dpi curl mysql-client-5.5 libcurl4-gnutls-dev libxml2-dev libpng12-dev libicu-dev libmcrypt-dev libjpeg62-turbo-dev libfreetype6-dev libjpeg62-turbo zlib1g-dev libmemcached11 libmemcached-dev git
 
 # Building memcached extension
 RUN git clone -b php7 https://github.com/php-memcached-dev/php-memcached.git && cd php-memcached && phpize && ./configure && make install
@@ -18,16 +17,13 @@ RUN docker-php-ext-install pdo curl gd intl pdo_mysql mcrypt dom mbstring
 RUN docker-php-ext-enable memcached
 
 # Adding wkhtmltopdf
-RUN wget http://download.gna.org/wkhtmltopdf/0.12/0.12.2.1/wkhtmltox-0.12.2.1_linux-jessie-amd64.deb && dpkg -i http://download.gna.org/wkhtmltopdf/0.12/0.12.2.1/wkhtmltox-0.12.2.1_linux-jessie-amd64.deb && rm wkhtmltox-0.12.2.1_linux-jessie-amd64.deb
+RUN wget http://download.gna.org/wkhtmltopdf/0.12/0.12.2.1/wkhtmltox-0.12.2.1_linux-jessie-amd64.deb && dpkg -i wkhtmltox-0.12.2.1_linux-jessie-amd64.deb && rm wkhtmltox-0.12.2.1_linux-jessie-amd64.deb
 
 # Cleaning
 RUN apt-get clean && apt-get autoremove -y
 
 # Adding composer
-RUN php -r "readfile('https://getcomposer.org/installer');" > composer-setup.php
-RUN php composer-setup.php
-RUN php -r "unlink('composer-setup.php');"
-RUN mv composer.phar /usr/local/bin/composer
+RUN php -r "readfile('https://getcomposer.org/installer');" > composer-setup.php && php composer-setup.php && php -r "unlink('composer-setup.php');" && mv composer.phar /usr/local/bin/composer
 
 # Default command
 CMD ["php-fpm"]
