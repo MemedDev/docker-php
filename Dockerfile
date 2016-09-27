@@ -31,5 +31,8 @@ RUN php -r "readfile('https://getcomposer.org/installer');" > composer-setup.php
 # Adding npm
 RUN curl https://www.npmjs.com/install.sh | sh
 
+# Adding Grunt
+RUN npm install -g grunt-cli
+
 # Default command
 CMD ["php-fpm"]
