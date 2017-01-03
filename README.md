@@ -1,11 +1,10 @@
 docker-php
 ===========
 
-Based on php:7.0-fpm with some extensions enabled.
+Based on php:7.1-fpm with some extensions enabled.
 
 Added:
 
-- wkhtmltopdf | wkhtmltoimage - http://wkhtmltopdf.org/
 - mysql client
 - nodejs | npm
 - xpdf - http://www.foolabs.com/xpdf/
