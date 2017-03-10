@@ -35,5 +35,8 @@ RUN curl https://www.npmjs.com/install.sh | sh
 # Adding Grunt
 RUN npm install -g grunt-cli
 
+# Adding Bower
+RUN npm install -g bower
+
 # Default command
 CMD ["php-fpm"]
