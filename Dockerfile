@@ -25,6 +25,8 @@ RUN docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-di
 RUN docker-php-ext-install pdo curl gd intl pdo_mysql mcrypt dom mbstring gmp bcmath zip opcache
 RUN docker-php-ext-enable memcached
 RUN docker-php-ext-enable imagick
+RUN pecl install mongodb
+RUN docker-php-ext-enable mongodb
 
 # Cleaning
 RUN apt-get clean && apt-get autoremove -y
