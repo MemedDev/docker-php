@@ -31,6 +31,11 @@ RUN docker-php-ext-enable mongodb
 # Cleaning
 RUN apt-get clean && apt-get autoremove -y
 
+# Upgrading Node
+RUN npm cache clean -f
+RUN npm install -g n
+RUN n stable
+
 # Adding composer
 RUN php -r "readfile('https://getcomposer.org/installer');" > composer-setup.php && php composer-setup.php && php -r "unlink('composer-setup.php');" && mv composer.phar /usr/local/bin/composer
 
