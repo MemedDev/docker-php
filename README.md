@@ -1,7 +1,7 @@
 docker-php
 ===========
 
-Based on php:7.1-fpm with some extensions enabled.
+Based on php:7.2-fpm with some extensions enabled.
 
 Added:
 

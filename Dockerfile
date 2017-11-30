@@ -1,4 +1,4 @@
-FROM php:7.0-fpm
+FROM php:7.2-fpm
 MAINTAINER memed <gabriel.couto@memed.com.br>
 
 # Adding sources
