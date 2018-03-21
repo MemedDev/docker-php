@@ -6,7 +6,7 @@ Based on php:7.1-fpm with some extensions enabled.
 Added:
 
 - mysql client
-- nodejs | npm | bower | grunt
+- nodejs | npm | bower | grunt | gulp
 - xpdf - http://www.foolabs.com/xpdf/
 - ImageMagick - http://www.imagemagick.org/script/index.php
 
