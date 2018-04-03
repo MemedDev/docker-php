@@ -15,7 +15,7 @@ RUN git clone -b php7 https://github.com/php-memcached-dev/php-memcached.git && 
 RUN ln -s /usr/include/x86_64-linux-gnu/gmp.h /usr/include/gmp.h
 
 # Install PHP Imagick extension
-RUN yes "" | pecl install imagick
+RUN yes "" | pecl install imagick xdebug
 
 # Adding PHP extensions
 RUN docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/
@@ -23,6 +23,7 @@ RUN docker-php-ext-install pdo curl gd intl pdo_mysql mcrypt dom mbstring gmp bc
 RUN docker-php-ext-enable memcached
 RUN docker-php-ext-enable imagick
 RUN docker-php-ext-enable sysvsem
+RUN docker-php-ext-enable xdebug
 RUN pecl install mongodb
 RUN docker-php-ext-enable mongodb
 
