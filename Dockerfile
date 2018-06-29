@@ -41,8 +41,8 @@ RUN npm cache clean -f
 RUN npm install -g n
 RUN n stable
 
-# Adding composer
-RUN php -r "readfile('https://getcomposer.org/installer');" > composer-setup.php && php composer-setup.php && php -r "unlink('composer-setup.php');" && mv composer.phar /usr/local/bin/composer
+# Adding composer and prestissimo
+RUN php -r "readfile('https://getcomposer.org/installer');" > composer-setup.php && php composer-setup.php && php -r "unlink('composer-setup.php');" && mv composer.phar /usr/local/bin/composer && composer global require hirak/prestissimo
 
 # Adding npm-cache
 RUN npm install -g npm-cache
