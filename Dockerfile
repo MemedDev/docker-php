@@ -47,5 +47,8 @@ RUN npm install -g grunt-cli
 # Adding Bower
 RUN npm install -g bower
 
+# Adding Gulp
+RUN npm install -g gulp gulp-cli
+
 # Default command
 CMD ["php-fpm"]
