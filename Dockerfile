@@ -6,7 +6,7 @@ RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/reposit
 
 # Installing packages
 RUN apk update && apk upgrade --force
-RUN export DEBIAN_FRONTEND=noninteractive && apk add --force gnupg curl mysql-client git curl-dev libxml2-dev openssh
+RUN export DEBIAN_FRONTEND=noninteractive && apk add --force gnupg curl mysql-client git curl-dev libxml2-dev openssh-client
 
 # Adding PHP extensions
 RUN docker-php-ext-install pdo curl pdo_mysql dom mbstring bcmath zip opcache
