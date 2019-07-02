@@ -3,7 +3,11 @@ MAINTAINER memed <gabriel.couto@memed.com.br>
 
 # Installing packages
 RUN apt-get update && apt-get upgrade -y
-RUN export DEBIAN_FRONTEND=noninteractive && apt-get install -y --force-yes xorg libssl-dev libxrender-dev fontconfig xfonts-75dpi curl mysql-client-5.5 libcurl4-gnutls-dev libxml2-dev libpng12-dev libicu-dev libmcrypt-dev libjpeg62-turbo-dev libfreetype6-dev libjpeg62-turbo zlib1g-dev libmemcached11 libmemcached-dev git libgmp-dev psmisc nodejs nodejs-legacy npm xpdf libmagickwand-dev imagemagick xfonts-utils cabextract wget supervisor nginx
+RUN export DEBIAN_FRONTEND=noninteractive && apt-get install -y --force-yes xorg libssl-dev libxrender-dev fontconfig xfonts-75dpi curl mariadb-client-10.1 libcurl4-gnutls-dev libxml2-dev libpng-dev libicu-dev libmcrypt-dev libjpeg62-turbo-dev libfreetype6-dev libjpeg62-turbo zlib1g-dev libmemcached11 libmemcached-dev git libgmp-dev psmisc xpdf libmagickwand-dev imagemagick xfonts-utils cabextract wget supervisor nginx
+
+# Using alternative NodeJS Repository
+RUN curl -sL https://deb.nodesource.com/setup_10.x | bash -
+RUN export DEBIAN_FRONTEND=noninteractive && apt-get install -y --force-yes nodejs
 
 # Install ttf-mscorefonts using DEB
 RUN wget http://ftp.us.debian.org/debian/pool/contrib/m/msttcorefonts/ttf-mscorefonts-installer_3.6_all.deb && dpkg -i ttf-mscorefonts-installer_3.6_all.deb && rm -f ttf-mscorefonts-installer_3.6_all.deb
