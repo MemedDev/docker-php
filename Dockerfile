@@ -23,7 +23,7 @@ RUN yes "" | pecl install imagick xdebug
 
 # Adding PHP extensions
 RUN docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/
-RUN docker-php-ext-install pdo curl gd intl pdo_mysql mcrypt dom mbstring gmp bcmath zip opcache sysvsem
+RUN docker-php-ext-install pdo curl gd intl pdo_mysql mcrypt dom mbstring gmp bcmath zip opcache sysvsem sockets
 RUN docker-php-ext-enable memcached
 RUN docker-php-ext-enable imagick
 RUN docker-php-ext-enable sysvsem
