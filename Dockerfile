@@ -6,11 +6,11 @@ RUN echo 'deb http://httpredir.debian.org/debian jessie contrib' >> /etc/apt/sou
 
 # Installing packages
 RUN apt-get update && apt-get upgrade -y
-RUN export DEBIAN_FRONTEND=noninteractive && apt-get install -y --force-yes gnupg xorg libssl-dev libxrender-dev fontconfig xfonts-75dpi curl mysql-client libcurl4-gnutls-dev libxml2-dev libpng-dev libicu-dev libmcrypt-dev libjpeg62-turbo-dev libfreetype6-dev libjpeg62-turbo zlib1g-dev libmemcached11 libmemcached-dev git libgmp-dev psmisc xpdf libmagickwand-dev imagemagick xfonts-utils cabextract wget supervisor nginx
+RUN export DEBIAN_FRONTEND=noninteractive && apt-get install -y gnupg xorg libssl-dev libxrender-dev fontconfig xfonts-75dpi curl default-mysql-client libcurl4-gnutls-dev libxml2-dev libpng-dev libicu-dev libmcrypt-dev libjpeg62-turbo-dev libfreetype6-dev libjpeg62-turbo zlib1g-dev libmemcached11 libmemcached-dev git libgmp-dev psmisc xpdf libmagickwand-dev imagemagick xfonts-utils cabextract wget supervisor nginx
 
 # Using alternative NodeJS Repository
 RUN curl -sL https://deb.nodesource.com/setup_10.x | bash -
-RUN export DEBIAN_FRONTEND=noninteractive && apt-get install -y --force-yes nodejs
+RUN export DEBIAN_FRONTEND=noninteractive && apt-get install -y nodejs
 
 # Install ttf-mscorefonts using DEB
 RUN wget http://ftp.us.debian.org/debian/pool/contrib/m/msttcorefonts/ttf-mscorefonts-installer_3.6_all.deb && dpkg -i ttf-mscorefonts-installer_3.6_all.deb && rm -f ttf-mscorefonts-installer_3.6_all.deb
@@ -52,7 +52,7 @@ RUN npm install -g npm-cache
 RUN npm install -g grunt-cli
 
 # Adding Bower
-RUN npm install -g bower
+RUN npm install -g yarn
 
 # Default command
 CMD ["php-fpm"]
