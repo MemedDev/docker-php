@@ -54,5 +54,8 @@ RUN npm install -g grunt-cli
 # Adding Bower
 RUN npm install -g yarn
 
+# PHP configs
+COPY "php" "/usr/local/etc/php"
+
 # Default command
 CMD ["php-fpm"]
