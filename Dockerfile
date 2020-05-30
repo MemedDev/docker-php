@@ -5,7 +5,7 @@ MAINTAINER memed <gabriel.couto@memed.com.br>
 RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories
 
 # Installing packages
-RUN apk update && apk upgrade --force  && apk add --force gnupg curl mysql-client git curl-dev libxml2-dev openssh-client mongodb
+RUN apk update && apk upgrade --force  && apk add --force gnupg curl mysql-client git curl-dev libxml2-dev openssh-client
 
 # Adding PHP extensions
 RUN docker-php-ext-install pdo curl pdo_mysql dom mbstring bcmath zip opcache soap sockets
