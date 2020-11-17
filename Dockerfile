@@ -30,6 +30,8 @@ RUN docker-php-ext-enable memcached
 RUN docker-php-ext-enable imagick
 RUN pecl install mongodb
 RUN docker-php-ext-enable mongodb
+RUN pecl install timezonedb && \
+    docker-php-ext-enable timezonedb
 
 # Cleaning
 RUN apt-get clean && apt-get autoremove -y
