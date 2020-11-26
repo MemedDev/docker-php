@@ -33,6 +33,8 @@ RUN docker-php-ext-enable sysvsem
 RUN docker-php-ext-enable soap
 RUN pecl install mongodb
 RUN docker-php-ext-enable mongodb
+RUN pecl install timezonedb && \
+    docker-php-ext-enable timezonedb
 
 # Cleaning
 RUN apt-get clean && apt-get autoremove -y
