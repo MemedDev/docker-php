@@ -33,6 +33,7 @@ RUN docker-php-ext-enable sysvsem
 RUN docker-php-ext-enable soap
 RUN pecl install mongodb
 RUN docker-php-ext-enable mongodb
+# Ajusta horario de verao
 RUN pecl install timezonedb && \
     docker-php-ext-enable timezonedb
 
