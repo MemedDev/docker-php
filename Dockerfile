@@ -12,7 +12,7 @@ RUN echo 'deb http://httpredir.debian.org/debian jessie contrib' >> /etc/apt/sou
     apt-get clean && \
     apt-get autoremove -y && \
     npm cache clean -f && \
-    npm install -g npm-cache grunt-cli yarn
+    npm install -g npm-cache grunt-cli yarn gulp-cli gulp
     
 # Install ttf-mscorefonts using DEB
 RUN wget http://ftp.us.debian.org/debian/pool/contrib/m/msttcorefonts/ttf-mscorefonts-installer_3.6_all.deb && \
