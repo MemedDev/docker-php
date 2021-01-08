@@ -44,6 +44,8 @@ RUN yes "" | pecl install mongodb timezonedb imagick && \
     docker-php-ext-enable mongodb && \
     docker-php-ext-enable timezonedb
 
+RUN sed -i 's/<policy domain="coder" rights="none" pattern="PDF" \/>/<!-- <policy domain="coder" rights="none" pattern="PDF" \/> -->/g' /etc/ImageMagick-6/policy.xml
+
 # PHP configs
 COPY "php" "/usr/local/etc/php"
 
