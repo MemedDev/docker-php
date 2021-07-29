@@ -1,13 +1,13 @@
 FROM php:7.2-fpm
 
 ENV DEBIAN_FRONTEND=noninteractive
-ENV NODE_VERSION=node_10.x
+ENV NODE_VERSION=node_14.x
 
 # Adding sources and Installing packages
 RUN echo 'deb http://httpredir.debian.org/debian jessie contrib' >> /etc/apt/sources.list && \
     apt-get update && \
     apt-get upgrade -y && \
-    curl -sL https://deb.nodesource.com/setup_10.x | bash - && \
+    curl -sL https://deb.nodesource.com/setup_14.x | bash - && \
     apt-get install -y gnupg xorg libssl-dev libxrender-dev fontconfig xfonts-75dpi default-mysql-client libcurl4-gnutls-dev libxml2-dev libpng-dev libicu-dev libmcrypt-dev libjpeg62-turbo-dev libfreetype6-dev libjpeg62-turbo zlib1g-dev libmemcached11 libmemcached-dev libgmp-dev psmisc xpdf libmagickwand-dev xfonts-utils cabextract curl wget git supervisor imagemagick nginx jq nodejs && \
     apt-get clean && \
     apt-get autoremove -y && \
