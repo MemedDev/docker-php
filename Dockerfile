@@ -1,7 +1,7 @@
 FROM php:7.2-fpm
 
 ENV DEBIAN_FRONTEND=noninteractive
-ENV NODE_VERSION=node_10.x
+ENV NODE_VERSION=node_14.x
 
 # Adding sources and Installing packages
 RUN echo 'deb http://httpredir.debian.org/debian jessie contrib' >> /etc/apt/sources.list && \
